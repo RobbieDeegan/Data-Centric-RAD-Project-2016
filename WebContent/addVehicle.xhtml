@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Add Manufacturer</title>
+
+	<f:metadata>
+		<f:event listener="#{vehicleController.load()}"
+			type="preRenderView" />
+	</f:metadata>
+</h:head>
+
+<h:body>
+	<h:form>
+	    Registration: <h:inputText value="#{garage.setReg}" id="reg"
+		p:placeholder="Enter Reg Number" />
+	<br />
+	    Manufacturer Code: <h:inputText value="#{garage.setManu_Code}" id = "manu_code"
+		p:placeholder="Enter Man Code" />
+	<br />
+		Model Code: <h:inputText value="#{garage.setModel_Code}" id = "model_code"
+		p:placeholder="Enter Model" />
+	<br />
+	 	Mileage: <h:inputText value="#{garage.setMileage}" id = "mileage"
+		p:placeholder="Enter Mileage" />
+	<br />
+	 	Price: <h:inputText value="#{garage.setPrice}" id = "price"
+		p:placeholder="Enter Price" />
+	<br />
+		Colour: <h:inputText value="#{garage.setColour}" id = "colour"
+		p:placeholder="Enter Model" />
+	<br />
+		Fuel: <h:selectOneMenu value="#{garage.setFuel}">
+	   	<f:selectItem itemValue="petrol" itemLabel="Petrol" />
+	   	<f:selectItem itemValue="diesel" itemLabel="Diesel" />
+	</h:selectOneMenu>
+	<br />
+	<h:commandButton value="Add" action="Vehicle" />
+	<br />
+	<h:link value="Home" outcome="main" />
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Manufacturer</title>
+
+	<f:metadata>
+		<f:event listener="#{manufacturerController.load()}"
+			type="preRenderView" />
+	</f:metadata>
+</h:head>
+
+<h:body>
+	<h:form>
+
+		<h:commandButton value="Add Manufacturer" action="addMan" />
+		<br />
+		<h:dataTable value="#{manufacturerController.garage}" var="g"
+			headerClass="table-header" rowClasses="table-odd-row,table-even-row">
+			<h:column>
+				<f:facet name="header">Garage</f:facet>
+		#{g.code}
+		#{g.name}
+		#{g.details}
+	</h:column>
+		</h:dataTable>
+	<h:link value="Home" outcome="main" />
+	</h:form>
+	
+</h:body>
+</html>
