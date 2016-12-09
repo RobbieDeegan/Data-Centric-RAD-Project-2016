@@ -79,8 +79,7 @@ public class DAO {
 		 Connection conn = mysqlDS.getConnection(); 
 		 /*PreparedStatement myStmt = conn.prepareStatement("update manufacturer set manu_code='" + g.getManCode() + "', manu_name ='" + g.getName() + "'");
 		 
-	
-		 myStmt.setString(1, g.getManCode()); 
+		 myStmt.setString(1, g.getManCode());
 		 myStmt.setString(2, g.getName());
 		 myStmt.executeUpdate(); */
 		 

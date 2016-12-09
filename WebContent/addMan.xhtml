@@ -15,16 +15,16 @@
 
 <h:body>
 	<h:form>
-      Code: <h:inputText value="#{garage.setCode}" id="code"
+      Code: <h:inputText value="#{garage.code}" id = "code"
 			p:placeholder="Enter Manufacturer Code" />
 		<br />
-      Name: <h:inputText value="#{garage.setName}" id = "name"
+      Name: <h:inputText value="#{garage.name}" id = "name"
 			p:placeholder="Enter Name" />
 		<br />
-	  Details: <h:inputText value="#{garage.setDetails}" id = "details"
+	  Details: <h:inputText value="#{garage.details}" id = "details"
 			p:placeholder="Enter Details" />
 		<br />
-		<h:commandButton value="Add" action="Manufacturer" />
+		<h:commandButton value="Add" action="#{garage.add}" />
 		<br />
 		<h:link value="Home" outcome="main" />
 	</h:form>

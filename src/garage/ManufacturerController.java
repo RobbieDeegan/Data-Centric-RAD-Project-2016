@@ -32,7 +32,6 @@ public class ManufacturerController {
 		} catch (Exception e) {
 			return e.toString();
 		}
-
 	}
 
 	public String update(Manufacturer g) throws Exception {
@@ -52,6 +51,5 @@ public class ManufacturerController {
 		} catch (Exception e) {
 			return e.toString();
 		}
-
 	}
 }
