@@ -1,9 +1,8 @@
-package garage;
+package manufacturer;
 
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
-
 public class Vehicle {
 
 	private String reg;
@@ -84,6 +83,4 @@ public class Vehicle {
 	public void setFuel(String fuel) {
 		this.fuel = fuel;
 	}
-
-	
 }

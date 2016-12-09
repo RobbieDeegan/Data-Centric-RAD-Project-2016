@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Update Manufacturer</title>
+</h:head>
+<h:body>
+	<h:form>
+		<br />
+		<h:messages styleClass="errorMessage" globalOnly="true" />
+		<br />
+		<h:message for="code" styleClass="errorMessage" />
+		<br />
+      	Manufacturer code: <h:inputText value="#{manufacturer.code}" id="code"
+			p:placeholder="Manufacturer Code"
+			required="true" requiredMessage="Manufacturer code is mandatory" />
+		<br />
+		<br />
+		<h:message styleClass="errorMessage" for="name"/> 
+		<br />
+      	Manufacturer name: <h:inputText value="#{manufacturer.name}" id="name"
+			p:placeholder="Manufacturer name" 
+			required="true" requiredMessage="Manufacturer name is mandatory" />
+		<br />
+		<br />
+		<h:message styleClass="errorMessage" for="details"/> 
+		<br />
+		Manufacturer details: <h:inputText value="#{manufacturer.details}" id="details"
+			p:placeholder="Manufacturer details" 
+			required="true" requiredMessage="Manufacturer details is mandatory" />
+		<br />
+		<br />
+		<h:commandButton value="Update"
+			action="#{manufacturerController.update(manufacturer)}" />
+		<br />
+		<br />
+		<h:link value="Home" outcome="main" /> 
+	</h:form>
+</h:body>
+</html>

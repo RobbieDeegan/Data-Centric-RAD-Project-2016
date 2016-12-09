@@ -1,4 +1,4 @@
-package garage;
+package manufacturer;
 
 import javax.faces.bean.ManagedBean;
 
@@ -31,7 +31,7 @@ public class Model{
 	}
 	
 	public String getCarCode() {
-		return manCode;
+		return carCode;
 	}
 
 	public void setCarCode(String carCode) {

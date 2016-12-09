@@ -1,4 +1,4 @@
-package garage;
+package manufacturer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,81 +20,38 @@ public class DAO {
 		mysqlDS = (DataSource) context.lookup(jndiName);
 	}
 
-	// Delete functions for separate classes
 	// Delete a Manufacturer of cars
-	public void delete(Manufacturer g) throws SQLException {
+	public void delete(Manufacturer m) throws SQLException {
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement stmt = conn.prepareStatement("delete from manufacturer where manu_code ='" + g.getCode() + "' and manu_name ='" + g.getName() + "' and manu_details ='" + g.getDetails() + "'");
+		PreparedStatement stmt = conn.prepareStatement("delete from manufacturer where manu_code ='" + m.getCode() + "' and manu_name ='" + m.getName() + "' and manu_details ='" + m.getDetails() + "'");
 
 		stmt.executeUpdate();
 	} // delete
-	
-	// Delete a model of car
-	public void deleteModel(Model g) throws SQLException {
 
-		Connection conn = mysqlDS.getConnection();
-		PreparedStatement stmt = conn.prepareStatement("delete from model where manu_code ='" + g.getManCode() + "' and model_code ='" + g.getCarCode() + "' and model_name ='" + g.getName() + "' and model_desc ='"+ g.getDescribtion() + "'");
-
-		stmt.executeUpdate();
-	} // end deleteModel
-	
-	// Delete a unique vehicle from the database
-	public void deleteVehicle(Vehicle g) throws SQLException {
-
-		Connection conn = mysqlDS.getConnection();
-		//PreparedStatement stmt = conn.prepareStatement("delete from vehicle where manu_code ='" + g.getManCode() + "' and model_code ='" + g.getCarCode() + "' and model_name ='" + g.getName() + "' and model_desc ='"+ g.getDescribtion() + "'");
-
-		//stmt.executeUpdate();
-		
-	} // end deleteVehicle
-
-	// Update functions for the separate classes
 	// Update Details of a car manufacturer
-	public void update(Manufacturer g) throws SQLException {
-	 
-		 Connection conn = mysqlDS.getConnection(); 
-		 PreparedStatement myStmt = conn.prepareStatement("update manufacturer set manu_code='" + g.getCode() + "', manu_name ='" + g.getName() + "'");
-		 
-		 myStmt.setString(1, g.getCode()); 
-		 myStmt.setString(2, g.getName());
-		 myStmt.executeUpdate();
+	public void updateManufacturer(Manufacturer m) throws SQLException {
+		Connection conn = mysqlDS.getConnection();
+		PreparedStatement stmt = conn.prepareStatement("update manufacturer set manu_code = ?, manu_name = ?, manu_details = ? where manu_code = ?");
+		
+		stmt.setString(1, m.getCode());
+		stmt.setString(2, m.getName());
+		stmt.setString(3, m.getDetails());
+		stmt.setString(4, m.getCode());
+		
+		stmt.executeUpdate();
 	} // end update
-
-	// Update a model if car
-	public void updateModel(Model g) throws SQLException {
-		 
-		 Connection conn = mysqlDS.getConnection(); 
-		 PreparedStatement myStmt = conn.prepareStatement("update manufacturer set manu_code='" + g.getManCode() + "', manu_name ='" + g.getName() + "'");
-		 
-		 myStmt.setString(1, g.getManCode()); 
-		 myStmt.setString(2, g.getName());
-		 myStmt.executeUpdate(); 
-		 
-	} // end updateModel
-	
-	// Update the details of a unique vehicle
-	public void updateVehicle(Vehicle g) throws SQLException {
-		 
-		 Connection conn = mysqlDS.getConnection(); 
-		 /*PreparedStatement myStmt = conn.prepareStatement("update manufacturer set manu_code='" + g.getManCode() + "', manu_name ='" + g.getName() + "'");
-		 
-		 myStmt.setString(1, g.getManCode());
-		 myStmt.setString(2, g.getName());
-		 myStmt.executeUpdate(); */
-		 
-	} // end updateVehicle
 
 	// Functions to add to the database
 	// Add a Manufacturer
-	public void add(Manufacturer g) throws SQLException {
+	public void add(Manufacturer m) throws SQLException {
 
 		Connection conn = mysqlDS.getConnection();
 		PreparedStatement stmt = conn.prepareStatement("INSERT INTO manufacturer values(?, ?, ?)");
 
-		stmt.setString(1, g.getCode());
-		stmt.setString(2, g.getName());
-		stmt.setString(3, g.getDetails());
+		stmt.setString(1, m.getCode());
+		stmt.setString(2, m.getName());
+		stmt.setString(3, m.getDetails());
 		
 
 		stmt.executeUpdate();
@@ -102,15 +59,15 @@ public class DAO {
 	} // end add
 	
 	// Add a new model of vehicle 
-	public void addModel(Model g) throws SQLException {
+	public void addModel(Model m) throws SQLException {
 
 		Connection conn = mysqlDS.getConnection();
 		PreparedStatement stmt = conn.prepareStatement("INSERT INTO model values(?, ?, ?, ?)");
 
-		stmt.setString(1, g.getManCode());
-		stmt.setString(2, g.getCarCode());
-		stmt.setString(3, g.getName());
-		stmt.setString(4, g.getDescribtion());
+		stmt.setString(1, m.getManCode());
+		stmt.setString(2, m.getCarCode());
+		stmt.setString(3, m.getName());
+		stmt.setString(4, m.getDescribtion());
 
 		stmt.executeUpdate();
 		
@@ -138,7 +95,7 @@ public class DAO {
 	// Manufacturer Lists
 	public ArrayList<Manufacturer> getManufacturer() throws Exception {
 
-		ArrayList<Manufacturer> garage = new ArrayList<>();
+		ArrayList<Manufacturer> manufacturer = new ArrayList<>();
 
 		Connection conn = mysqlDS.getConnection();
 		PreparedStatement myStmt = conn.prepareStatement("select * from manufacturer");
@@ -151,16 +108,16 @@ public class DAO {
 			String name = result.getString("manu_name");
 			String details = result.getString("manu_details");
 
-			garage.add(new Manufacturer(code, name, details));
+			manufacturer.add(new Manufacturer(code, name, details));
 		}
 
-		return garage;
+		return manufacturer;
 	} // end getManufacturer
 	
 	// Vehicle Model lists
 	public ArrayList<Model> getModel() throws Exception {
 
-		ArrayList<Model> garage = new ArrayList<>();
+		ArrayList<Model> model = new ArrayList<>();
 
 		Connection conn = mysqlDS.getConnection();
 		PreparedStatement myStmt = conn.prepareStatement("select * from model");
@@ -174,16 +131,16 @@ public class DAO {
 			String name = result.getString("model_name");
 			String describtion = result.getString("model_desc");
 
-			garage.add(new Model(manCode, carCode , name, describtion));
+			model.add(new Model(manCode, carCode, name, describtion));
 		}
 
-		return garage;
+		return model;
 	} // end getModel
 	
 	// Generate the details of a vehicle to a list
 	public ArrayList<Vehicle> getVehicle() throws Exception {
 
-		ArrayList<Vehicle> garage = new ArrayList<>();
+		ArrayList<Vehicle> vehicle = new ArrayList<>();
 
 		Connection conn = mysqlDS.getConnection();
 		PreparedStatement myStmt = conn.prepareStatement("select * from vehicle");
@@ -200,9 +157,9 @@ public class DAO {
 			String colour = result.getString("colour");
 			String fuel = result.getString("fuel");
 
-			garage.add(new Vehicle(reg, manu_code, model_code, mileage, price, colour, fuel));
+			vehicle.add(new Vehicle(reg, manu_code, model_code, mileage, price, colour, fuel));
 		}
 
-		return garage;
+		return vehicle;
 	} // end getVehicle
 }

@@ -18,7 +18,7 @@
 		<h:commandButton value="Add Vehicle" action="addVehicle" />
 		<br />
 		
-		<h:dataTable value="#{vehicleController.garage}" var="g" border="2">
+		<h:dataTable value="#{vehicleController.vehicle}" var="g" border="2">
 		<h:column>
 			<f:facet name="header">Reg</f:facet>
 			#{g.reg}
@@ -46,10 +46,6 @@
 		<h:column>	
 			<f:facet name="header">Fuel</f:facet>
 			#{g.fuel}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Action</f:facet>
-			 <a href="update.xhtml">Update</a><br />
 		</h:column>
 		</h:dataTable>
 	

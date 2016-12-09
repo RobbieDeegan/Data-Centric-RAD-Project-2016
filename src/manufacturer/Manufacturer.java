@@ -1,4 +1,4 @@
-package garage;
+package manufacturer;
 
 import javax.faces.bean.ManagedBean;
 

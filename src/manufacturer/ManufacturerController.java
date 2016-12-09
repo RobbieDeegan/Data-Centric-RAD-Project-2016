@@ -1,4 +1,4 @@
-package garage;
+package manufacturer;
 
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class ManufacturerController {
 
-	private ArrayList<Manufacturer> garage;
+	private ArrayList<Manufacturer> manufacturer;
 	private DAO dao;
 
 	public ManufacturerController() {
@@ -17,36 +17,36 @@ public class ManufacturerController {
 		}
 	}
 
-	public ArrayList<Manufacturer> getGarage() {
-		return garage;
+	public ArrayList<Manufacturer> getManufacturer() {
+		return manufacturer;
 	}
 
 	public void load() throws Exception {
-		garage = dao.getManufacturer();
+		manufacturer = dao.getManufacturer();
 	}
 
-	public String add(Manufacturer g) throws Exception {
+	public String add(Manufacturer m) throws Exception {
 		try {
-			dao.add(g);
+			dao.add(m);
 			return "Manufacturer";
 		} catch (Exception e) {
 			return e.toString();
 		}
 	}
 
-	public String update(Manufacturer g) throws Exception {
+	public String update(Manufacturer m) throws Exception {
 		try {
-			dao.update(g);
+			dao.updateManufacturer(m);
 			return "helloOutput";
 		} catch (Exception e) {
 			return e.toString();
 		}
 	}
 
-	public String delete(Manufacturer g) throws Exception {
+	public String delete(Manufacturer m) throws Exception {
 
 		try {
-			dao.delete(g);
+			dao.delete(m);
 			return "helloOutput";
 		} catch (Exception e) {
 			return e.toString();

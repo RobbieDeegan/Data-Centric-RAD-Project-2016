@@ -19,22 +19,22 @@
 		<h:commandButton value="Add Manufacturer" action="addMan" />
 		<br />
 		
-		<h:dataTable value="#{manufacturerController.garage}" var="g" border="2">
+		<h:dataTable value="#{manufacturerController.manufacturer}" var="m" border="2">
 		<h:column>
 			<f:facet name="header">Manufacturer Code</f:facet>
-			#{g.code}
+			#{m.code}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Manufacturer Name</f:facet>
-			#{g.name}
+			#{m.name}
 		</h:column>
 		<h:column>	
 			<f:facet name="header">Manufacturer Details</f:facet>
-			#{g.details}
+			#{m.details}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Action</f:facet>
-			 <a href="update.xhtml">Update</a><br />
+			 <a href="updateMan.xhtml">Update</a><br />
 		</h:column>
 	</h:dataTable>
 

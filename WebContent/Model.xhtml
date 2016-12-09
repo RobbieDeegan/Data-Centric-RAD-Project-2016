@@ -18,26 +18,22 @@
 
 		<h:commandButton value="Add Model" action="addModel" />
 		<br />
-		<h:dataTable value="#{modelController.garage}" var="g" border="2">
+		<h:dataTable value="#{modelController.model}" var="m" border="2">
 		<h:column>
 			<f:facet name="header">Manufacturer Code</f:facet>
-			#{g.manCode}
+			#{m.manCode}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Manufacturer Name</f:facet>
-			#{g.carCode}
+			#{m.carCode}
 		</h:column>
 		<h:column>	
 			<f:facet name="header">Name</f:facet>
-			#{g.name}
+			#{m.name}
 		</h:column>
 		<h:column>	
 			<f:facet name="header">Describtion</f:facet>
-			#{g.describtion}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Action</f:facet>
-			 <a href="update.xhtml">Update</a><br />
+			#{m.describtion}
 		</h:column>
 		</h:dataTable>
 	
