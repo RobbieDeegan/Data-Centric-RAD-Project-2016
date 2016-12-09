@@ -53,7 +53,6 @@ public class DAO {
 		stmt.setString(2, m.getName());
 		stmt.setString(3, m.getDetails());
 		
-
 		stmt.executeUpdate();
 		
 	} // end add

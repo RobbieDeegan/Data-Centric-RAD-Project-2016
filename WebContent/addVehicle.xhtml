@@ -3,44 +3,57 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-
 <h:head>
-	<title>Add Manufacturer</title>
-
-	<f:metadata>
-		<f:event listener="#{vehicleController.load()}"
-			type="preRenderView" />
-	</f:metadata>
+	<title>Add Vehicle</title>
 </h:head>
-
 <h:body>
 	<h:form>
-	    Registration: <h:inputText value="#{garage.setReg}" id="reg"
-		p:placeholder="Enter Reg Number" />
-	<br />
-	    Manufacturer Code: <h:inputText value="#{garage.setManu_Code}" id = "manu_code"
-		p:placeholder="Enter Man Code" />
-	<br />
-		Model Code: <h:inputText value="#{garage.setModel_Code}" id = "model_code"
-		p:placeholder="Enter Model" />
-	<br />
-	 	Mileage: <h:inputText value="#{garage.setMileage}" id = "mileage"
-		p:placeholder="Enter Mileage" />
-	<br />
-	 	Price: <h:inputText value="#{garage.setPrice}" id = "price"
-		p:placeholder="Enter Price" />
-	<br />
-		Colour: <h:inputText value="#{garage.setColour}" id = "colour"
-		p:placeholder="Enter Model" />
-	<br />
-		Fuel: <h:selectOneMenu value="#{garage.setFuel}">
-	   	<f:selectItem itemValue="petrol" itemLabel="Petrol" />
-	   	<f:selectItem itemValue="diesel" itemLabel="Diesel" />
-	</h:selectOneMenu>
-	<br />
-	<h:commandButton value="Add" action="vehicle.add" />
-	<br />
-	<h:link value="Home" outcome="main" />
+		<br />
+		<h:messages styleClass="errorMessage" globalOnly="true" />
+		<br />
+		<h:message for="reg" styleClass="errorMessage" />
+		<br />
+      	Manufacturer code: <h:inputText value="#{vehicle.reg}" id="reg"
+			p:placeholder="Registration" required="true" requiredMessage="reg mandatory" />
+		<br />
+		<h:message styleClass="errorMessage" for="manu_code"/> 
+		<br />
+      	Model Code: <h:inputText value="#{vehicle.manu_code}" id="manu_code"
+			p:placeholder="Manufacturer Code" required="true" requiredMessage="Manufacturer mandatory" />
+		<br />
+		<h:message styleClass="errorMessage" for="model_code"/> 
+		<br />
+		Model Name: <h:inputText value="#{vehicle.model_code}" id="model_code"
+			p:placeholder="Model Code" required="true" requiredMessage="Model mandatory" />
+		<br />
+		<h:message styleClass="errorMessage" for="mileage"/> 
+		<br />
+		Mileage: <h:inputText value="#{vehicle.mileage}" id="mileage"
+			p:placeholder="0" required="false" />
+		<br />
+		
+		<h:message styleClass="errorMessage" for="price"/> 
+		<br />
+		Price: <h:inputText value="#{vehicle.price}" id="price"
+			p:placeholder="Price" required="true" requiredMessage="Price mandatory" />
+		<br />
+		
+		<h:message styleClass="errorMessage" for="colour"/> 
+		<br />
+		Colour: <h:inputText value="#{vehicle.colour}" id="colour"
+			p:placeholder="Colour" required="false" />
+		<br />
+		
+		<br />
+		Fuel: <h:selectOneMenu value="#{vehicle.fuel}">
+		   	<f:selectItem itemValue="petrol" itemLabel="Petrol" />
+		   	<f:selectItem itemValue="diesel" itemLabel="Diesel" />
+		</h:selectOneMenu>
+		<h:commandButton value="Add"
+			action="#{vehicleController.add(vehicle)}" />
+		<br />
+		<br />
+		<h:link value="Home" outcome="main" /> 
 	</h:form>
 </h:body>
 </html>

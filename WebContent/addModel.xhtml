@@ -3,33 +3,40 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-
 <h:head>
-	<title>Add Manufacturer</title>
-
-	<f:metadata>
-		<f:event listener="#{modelController.load()}"
-			type="preRenderView" />
-	</f:metadata>
+	<title>Add Model</title>
 </h:head>
-
 <h:body>
 	<h:form>
-      Manfacturer Code: <h:inputText value="#{garage.setManCode}" id="manCode"
-			p:placeholder="Enter Manufacturer Code" />
 		<br />
-      Code: <h:inputText value="#{garage.setCarCode}" id = "carCode"
-			p:placeholder="Enter Model Code" />
+		<h:messages styleClass="errorMessage" globalOnly="true" />
 		<br />
-	  Name: <h:inputText value="#{garage.setName}" id = "name"
-			p:placeholder="Enter Name" />
+		<h:message for="code" styleClass="errorMessage" />
 		<br />
-	  Description: <h:inputText value="#{garage.setDescription}" id = "description"
-			p:placeholder="Enter Description" />
+      	Manufacturer code: <h:inputText value="#{model.manCode}" id="manCode"
+			p:placeholder="Manufacturer Code" required="true" requiredMessage="Code mandatory" />
 		<br />
-		<h:commandButton value="Add" action="Model" />
+		<h:message styleClass="errorMessage" for="carCode"/> 
 		<br />
-		<h:link value="Home" outcome="main" />
+      	Model Code: <h:inputText value="#{model.carCode}" id="carCode"
+			p:placeholder="Model Code" required="true" requiredMessage="Code mandatory" />
+		<br />
+		<h:message styleClass="errorMessage" for="name"/> 
+		<br />
+		Model Name: <h:inputText value="#{model.name}" id="name"
+			p:placeholder="Model Name" required="true" requiredMessage="Name mandatory" />
+		<br />
+		
+		<h:message styleClass="errorMessage" for="describtion"/> 
+		<br />
+		Describtion: <h:inputText value="#{model.describtion}" id="describtion"
+			p:placeholder="Describtion" required="true" requiredMessage="Describtion mandatory" />
+		<br />
+		<h:commandButton value="Add"
+			action="#{modelController.add(model)}" />
+		<br />
+		<br />
+		<h:link value="Home" outcome="main" /> 
 	</h:form>
 </h:body>
 </html>
