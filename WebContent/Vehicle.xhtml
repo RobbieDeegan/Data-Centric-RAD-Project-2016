@@ -18,34 +18,34 @@
 		<h:commandButton value="Add Vehicle" action="addVehicle" />
 		<br />
 		
-		<h:dataTable value="#{vehicleController.vehicle}" var="g" border="2">
+		<h:dataTable value="#{vehicleController.vehicle}" var="v" border="2">
 		<h:column>
 			<f:facet name="header">Reg</f:facet>
-			#{g.reg}
+			#{v.reg}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Manufacturer Code</f:facet>
-			#{g.manu_code}
+			#{v.manu_code}
 		</h:column>
 		<h:column>	
 			<f:facet name="header">Model Code</f:facet>
-			#{g.model_code}
+			#{v.model_code}
 		</h:column>
 		<h:column>	
 			<f:facet name="header">Mileage</f:facet>
-			#{g.mileage}
+			#{v.mileage}
 		</h:column>
 		<h:column>	
 			<f:facet name="header">Price</f:facet>
-			#{g.price}
+			#{v.price}
 		</h:column>
 		<h:column>	
 			<f:facet name="header">Colour</f:facet>
-			#{g.colour}
+			#{v.colour}
 		</h:column>
 		<h:column>	
 			<f:facet name="header">Fuel</f:facet>
-			#{g.fuel}
+			#{v.fuel}
 		</h:column>
 		</h:dataTable>
 	

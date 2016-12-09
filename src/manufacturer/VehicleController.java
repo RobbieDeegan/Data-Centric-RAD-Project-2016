@@ -2,8 +2,10 @@ package manufacturer;
 
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
+@SessionScoped
 public class VehicleController {
 
 	private ArrayList<Vehicle> vehicle;
@@ -25,9 +27,9 @@ public class VehicleController {
 		vehicle = dao.getVehicle();
 	}
 
-	public String add(Vehicle g) throws Exception {
+	public String add(Vehicle v) throws Exception {
 		try {
-			dao.addVehicle(g);
+			dao.addVehicle(v);
 			return "helloOutput";
 		} catch (Exception e) {
 			return e.toString();

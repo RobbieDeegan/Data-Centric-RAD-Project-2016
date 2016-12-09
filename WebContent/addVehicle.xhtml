@@ -8,9 +8,7 @@
 </h:head>
 <h:body>
 	<h:form>
-		<br />
 		<h:messages styleClass="errorMessage" globalOnly="true" />
-		<br />
 		<h:message for="reg" styleClass="errorMessage" />
 		<br />
       	Manufacturer code: <h:inputText value="#{vehicle.reg}" id="reg"
@@ -53,7 +51,9 @@
 			action="#{vehicleController.add(vehicle)}" />
 		<br />
 		<br />
-		<h:link value="Home" outcome="main" /> 
+		<h:link value="Home" outcome="main" />
+		<h:link value="Vehicles" outcome="Vehicle" />
+		 
 	</h:form>
 </h:body>
 </html>

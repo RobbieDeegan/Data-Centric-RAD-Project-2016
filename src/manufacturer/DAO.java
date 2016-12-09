@@ -73,18 +73,18 @@ public class DAO {
 	} // end addModel
 	
 	// Add a unique vehicle to the database
-	public void addVehicle(Vehicle g) throws SQLException {
+	public void addVehicle(Vehicle v) throws SQLException {
 
 		Connection conn = mysqlDS.getConnection();
 		PreparedStatement stmt = conn.prepareStatement("INSERT INTO model values(?, ?, ?, ?, ?, ?, ?)");
 
-		stmt.setString(1, g.getReg());
-		stmt.setString(2, g.getManu_code());
-		stmt.setString(3, g.getModel_code());
-		stmt.setInt(4, g.getMileage());
-		stmt.setFloat(5, g.getPrice());
-		stmt.setString(6, g.getColour());
-		stmt.setString(7, g.getFuel());
+		stmt.setString(1, v.getReg());
+		stmt.setString(2, v.getManu_code());
+		stmt.setString(3, v.getModel_code());
+		stmt.setInt(4, v.getMileage());
+		stmt.setFloat(5, v.getPrice());
+		stmt.setString(6, v.getColour());
+		stmt.setString(7, v.getFuel());
 
 		stmt.executeUpdate(); 
 		
