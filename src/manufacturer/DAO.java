@@ -161,4 +161,29 @@ public class DAO {
 
 		return vehicle;
 	} // end getVehicle
+	
+	// Generate the details of a vehicle to a list
+	public ArrayList<Vehicle> getVehicleDetails(Vehicle v) throws SQLException {
+
+		ArrayList<Vehicle> vehicle = new ArrayList<>();
+
+		Connection conn = mysqlDS.getConnection();
+		PreparedStatement myStmt = conn.prepareStatement("select * from vehicle where reg = ?");
+
+		ResultSet result = myStmt.executeQuery();
+
+			myStmt.setString(1, v.getReg());
+			String reg = result.getString("reg");
+			String manu_code = result.getString("manu_code");
+			String model_code = result.getString("model_code");
+			int mileage = result.getInt("mileage");
+			float price = result.getFloat("price");
+			String colour = result.getString("colour");
+			String fuel = result.getString("fuel");
+
+			vehicle.add(new Vehicle(reg, manu_code, model_code, mileage, price, colour, fuel));
+
+		return vehicle;
+		
+	} // end getVehicle
 }

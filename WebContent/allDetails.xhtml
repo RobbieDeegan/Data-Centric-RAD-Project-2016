@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Vehicle</title>
+
+	<f:metadata>
+		<f:event listener="#{vehicleController.loadDetails(v)}"
+			type="preRenderView" />
+	</f:metadata>
+</h:head>
+
+<h:body>
+	<h:form>	
+			Registration: #{v.reg} <br />
+		
+			Manufacturer Code: #{v.manu_code} <br />
+		
+			Model Code: #{v.model_code} <br />
+		
+			Mileage: #{v.mileage}<br />
+		
+			Price: #{v.price}<br />
+	
+			Colour: #{v.colour}<br />
+	
+			Fuel: #{v.fuel}<br />
+	
+		<h:link value="Home" outcome="main" />
+	</h:form>
+</h:body>
+</html>

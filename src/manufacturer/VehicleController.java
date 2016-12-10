@@ -26,14 +26,17 @@ public class VehicleController {
 	public void load() throws Exception {
 		vehicle = dao.getVehicle();
 	}
+	
+	public void loadDetails(Vehicle v) throws Exception {
+		vehicle = dao.getVehicleDetails(v);
+	}
 
 	public String add(Vehicle v) throws Exception {
 		try {
 			dao.addVehicle(v);
-			return "helloOutput";
+			return "Vehicle";
 		} catch (Exception e) {
 			return e.toString();
 		}
 	}
-
 }

@@ -39,7 +39,7 @@ public class ManufacturerController {
 	public String update(Manufacturer m) throws Exception {
 		try {
 			dao.updateManufacturer(m);
-			return "helloOutput";
+			return "Manufacturer";
 		} catch (Exception e) {
 			return e.toString();
 		}
@@ -49,7 +49,7 @@ public class ManufacturerController {
 
 		try {
 			dao.delete(m);
-			return "helloOutput";
+			return "Manufacturer";
 		} catch (Exception e) {
 			return e.toString();
 		}
