@@ -1,4 +1,4 @@
-package manufacturer;
+ package manufacturer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,8 +1,12 @@
 package manufacturer;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
@@ -45,13 +49,20 @@ public class ManufacturerController {
 		}
 	}
 
-	public String delete(Manufacturer m) throws Exception {
-
-		try {
+	public void delete(Manufacturer m) {
+		try {		
 			dao.delete(m);
-			return "Manufacturer";
-		} catch (Exception e) {
-			return e.toString();
+			FacesContext.getCurrentInstance().getExternalContext().redirect("Manufacturer.xhtml");
+				
+		} catch (SQLException e) {
+				
+			FacesMessage message = new FacesMessage("Error " + e);
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			
+		}
+		catch (Exception e) {
+				
+			e.printStackTrace();
 		}
 	}
 }
