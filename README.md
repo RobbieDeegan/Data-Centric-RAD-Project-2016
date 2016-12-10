@@ -10,4 +10,4 @@ Find All Vehicles Page - not working<br/>
 ~~Add Model Page~~<br/>
 ~~Add Vehicle Page~~<br/>
 ~~Update Manufacturer Page~~<br/>
-Delete Manufacturer Link<br/>
+~~Delete Manufacturer Link~~<br/>
