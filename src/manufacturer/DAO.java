@@ -76,7 +76,7 @@ public class DAO {
 	public void addVehicle(Vehicle v) throws SQLException {
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement stmt = conn.prepareStatement("INSERT INTO model values(?, ?, ?, ?, ?, ?, ?)");
+		PreparedStatement stmt = conn.prepareStatement("INSERT INTO vehicle values(?, ?, ?, ?, ?, ?, ?)");
 
 		stmt.setString(1, v.getReg());
 		stmt.setString(2, v.getManu_code());

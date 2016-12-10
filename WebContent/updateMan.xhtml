@@ -8,9 +8,7 @@
 </h:head>
 <h:body>
 	<h:form>
-		<br />
 		<h:messages styleClass="errorMessage" globalOnly="true" />
-		<br />
 		<h:message for="code" styleClass="errorMessage" />
 		<br />
       	Manufacturer code: <h:inputText value="#{manufacturer.code}" id="code"
@@ -36,7 +34,8 @@
 			action="#{manufacturerController.update(manufacturer)}" />
 		<br />
 		<br />
-		<h:link value="Home" outcome="main" /> 
+		<h:link value="Home" outcome="main" /> <br />
+		<h:link value="Manufacturers" outcome="Manufacturer" />
 	</h:form>
 </h:body>
 </html>

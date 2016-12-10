@@ -11,12 +11,12 @@
 		<h:messages styleClass="errorMessage" globalOnly="true" />
 		<h:message for="reg" styleClass="errorMessage" />
 		<br />
-      	Manufacturer code: <h:inputText value="#{vehicle.reg}" id="reg"
+      	Registration: <h:inputText value="#{vehicle.reg}" id="reg"
 			p:placeholder="Registration" required="true" requiredMessage="reg mandatory" />
 		<br />
 		<h:message styleClass="errorMessage" for="manu_code"/> 
 		<br />
-      	Model Code: <h:inputText value="#{vehicle.manu_code}" id="manu_code"
+      	Manufacturer Code: <h:inputText value="#{vehicle.manu_code}" id="manu_code"
 			p:placeholder="Manufacturer Code" required="true" requiredMessage="Manufacturer mandatory" />
 		<br />
 		<h:message styleClass="errorMessage" for="model_code"/> 
@@ -51,7 +51,7 @@
 			action="#{vehicleController.add(vehicle)}" />
 		<br />
 		<br />
-		<h:link value="Home" outcome="main" />
+		<h:link value="Home" outcome="main" /> <br />
 		<h:link value="Vehicles" outcome="Vehicle" />
 		 
 	</h:form>
