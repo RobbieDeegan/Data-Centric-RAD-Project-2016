@@ -1,13 +1,13 @@
 # Data-Centric-RAD-Project-2016
 
-~~Main Page~~
-~~Manage Manufacturer Page~~
-~~Manage Models Page~~
-~~Manage Vehicles Page~~
-Full Vehicle Details Page
-Find All Vehicles Page
-~~Add Manufacturer Page~~
-~~Add Model Page~~
-~~Add Vehicle Page~~
-~~Update Manufacturer Page~~
-Delete Manufacturer Link
+~~Main Page~~ <br/>
+~~Manage Manufacturer Page~~<br/>
+~~Manage Models Page~~<br/>
+~~Manage Vehicles Page~~<br/>
+Full Vehicle Details Page<br/>
+Find All Vehicles Page<br/>
+~~Add Manufacturer Page~~<br/>
+~~Add Model Page~~<br/>
+~~Add Vehicle Page~~<br/>
+~~Update Manufacturer Page~~<br/>
+Delete Manufacturer Link<br/>
