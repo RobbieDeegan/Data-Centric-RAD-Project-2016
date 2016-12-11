@@ -12,48 +12,49 @@
 		<h:message for="reg" styleClass="errorMessage" />
 		<br />
       	Registration: <h:inputText value="#{vehicle.reg}" id="reg"
-			p:placeholder="Registration" required="true" requiredMessage="reg mandatory" />
+			p:placeholder="Registration" required="true" 
+			requiredMessage="Reg mandatory" />
 		<br />
 		<h:message styleClass="errorMessage" for="manu_code"/> 
 		<br />
       	Manufacturer Code: <h:inputText value="#{vehicle.manu_code}" id="manu_code"
-			p:placeholder="Manufacturer Code" required="true" requiredMessage="Manufacturer mandatory" />
+			p:placeholder="Manufacturer Code" required="true" 
+			requiredMessage="Manufacturer mandatory" />
 		<br />
 		<h:message styleClass="errorMessage" for="model_code"/> 
 		<br />
 		Model Name: <h:inputText value="#{vehicle.model_code}" id="model_code"
-			p:placeholder="Model Code" required="true" requiredMessage="Model mandatory" />
+			p:placeholder="Model Code" required="true" 
+			requiredMessage="Model mandatory" />
 		<br />
 		<h:message styleClass="errorMessage" for="mileage"/> 
 		<br />
 		Mileage: <h:inputText value="#{vehicle.mileage}" id="mileage"
 			p:placeholder="0" required="false" />
 		<br />
-		
 		<h:message styleClass="errorMessage" for="price"/> 
 		<br />
 		Price: <h:inputText value="#{vehicle.price}" id="price"
-			p:placeholder="Price" required="true" requiredMessage="Price mandatory" />
+			p:placeholder="Price" required="true" 
+			requiredMessage="Price mandatory" />
 		<br />
-		
 		<h:message styleClass="errorMessage" for="colour"/> 
 		<br />
 		Colour: <h:inputText value="#{vehicle.colour}" id="colour"
 			p:placeholder="Colour" required="false" />
 		<br />
-		
 		<br />
 		Fuel: <h:selectOneMenu value="#{vehicle.fuel}">
 		   	<f:selectItem itemValue="petrol" itemLabel="Petrol" />
 		   	<f:selectItem itemValue="diesel" itemLabel="Diesel" />
 		</h:selectOneMenu>
+		<br />
 		<h:commandButton value="Add"
 			action="#{vehicleController.add(vehicle)}" />
 		<br />
 		<br />
 		<h:link value="Home" outcome="main" /> <br />
 		<h:link value="Vehicles" outcome="Vehicle" />
-		 
 	</h:form>
 </h:body>
 </html>

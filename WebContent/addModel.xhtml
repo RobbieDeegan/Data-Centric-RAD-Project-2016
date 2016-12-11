@@ -12,23 +12,27 @@
 		<h:message for="code" styleClass="errorMessage" />
 		<br />
       	Manufacturer code: <h:inputText value="#{model.manCode}" id="manCode"
-			p:placeholder="Manufacturer Code" required="true" requiredMessage="Code mandatory" />
+			p:placeholder="Manufacturer Code" required="true" 
+			requiredMessage="Code mandatory" />
 		<br />
 		<h:message styleClass="errorMessage" for="carCode"/> 
 		<br />
       	Model Code: <h:inputText value="#{model.carCode}" id="carCode"
-			p:placeholder="Model Code" required="true" requiredMessage="Code mandatory" />
+			p:placeholder="Model Code" required="true" 
+			requiredMessage="Code mandatory" />
 		<br />
 		<h:message styleClass="errorMessage" for="name"/> 
 		<br />
 		Model Name: <h:inputText value="#{model.name}" id="name"
-			p:placeholder="Model Name" required="true" requiredMessage="Name mandatory" />
+			p:placeholder="Model Name" required="true" 
+			requiredMessage="Name mandatory" />
 		<br />
 		
 		<h:message styleClass="errorMessage" for="describtion"/> 
 		<br />
 		Describtion: <h:inputText value="#{model.describtion}" id="describtion"
-			p:placeholder="Describtion" required="true" requiredMessage="Describtion mandatory" />
+			p:placeholder="Describtion" required="true" 
+			requiredMessage="Describtion mandatory" />
 		<br />
 		<h:commandButton value="Add"
 			action="#{modelController.add(model)}" />

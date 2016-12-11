@@ -10,6 +10,7 @@ public class Manufacturer {
 	private String name;
 	public String details;
 
+	// Constructors
 	public Manufacturer() {
 	}
 
@@ -20,6 +21,7 @@ public class Manufacturer {
 		this.details = details;
 	}
 
+	// Getters and Setters
 	public String getCode() {
 		return code;
 	}
@@ -43,5 +45,4 @@ public class Manufacturer {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-
 }

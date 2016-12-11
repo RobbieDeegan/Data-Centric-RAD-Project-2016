@@ -1,4 +1,4 @@
- package manufacturer;
+package manufacturer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ import javax.naming.*;
 import javax.sql.DataSource;
 
 public class DAO {
-
+	
 	private DataSource mysqlDS;
 
 	public DAO() throws Exception {
@@ -24,22 +24,22 @@ public class DAO {
 	public void delete(Manufacturer m) throws SQLException {
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement stmt = conn.prepareStatement("delete from manufacturer where manu_code ='" + m.getCode() + "' and manu_name ='" + m.getName() + "' and manu_details ='" + m.getDetails() + "'");
+		PreparedStatement statement = conn.prepareStatement("delete from manufacturer where manu_code ='" + m.getCode() + "' and manu_name ='" + m.getName() + "' and manu_details ='" + m.getDetails() + "'");
 
-		stmt.executeUpdate();
+		statement.executeUpdate();
 	} // delete
 
 	// Update Details of a car manufacturer
 	public void updateManufacturer(Manufacturer m) throws SQLException {
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement stmt = conn.prepareStatement("update manufacturer set manu_code = ?, manu_name = ?, manu_details = ? where manu_code = ?");
+		PreparedStatement statement = conn.prepareStatement("update manufacturer set manu_code = ?, manu_name = ?, manu_details = ? where manu_code = ?");
 		
-		stmt.setString(1, m.getCode());
-		stmt.setString(2, m.getName());
-		stmt.setString(3, m.getDetails());
-		stmt.setString(4, m.getCode());
+		statement.setString(1, m.getCode());
+		statement.setString(2, m.getName());
+		statement.setString(3, m.getDetails());
+		statement.setString(4, m.getCode());
 		
-		stmt.executeUpdate();
+		statement.executeUpdate();
 	} // end update
 
 	// Functions to add to the database
@@ -47,13 +47,13 @@ public class DAO {
 	public void add(Manufacturer m) throws SQLException {
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement stmt = conn.prepareStatement("INSERT INTO manufacturer values(?, ?, ?)");
+		PreparedStatement statement = conn.prepareStatement("INSERT INTO manufacturer values(?, ?, ?)");
 
-		stmt.setString(1, m.getCode());
-		stmt.setString(2, m.getName());
-		stmt.setString(3, m.getDetails());
+		statement.setString(1, m.getCode());
+		statement.setString(2, m.getName());
+		statement.setString(3, m.getDetails());
 		
-		stmt.executeUpdate();
+		statement.executeUpdate();
 		
 	} // end add
 	
@@ -61,14 +61,14 @@ public class DAO {
 	public void addModel(Model m) throws SQLException {
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement stmt = conn.prepareStatement("INSERT INTO model values(?, ?, ?, ?)");
+		PreparedStatement statement = conn.prepareStatement("INSERT INTO model values(?, ?, ?, ?)");
 
-		stmt.setString(1, m.getManCode());
-		stmt.setString(2, m.getCarCode());
-		stmt.setString(3, m.getName());
-		stmt.setString(4, m.getDescribtion());
+		statement.setString(1, m.getManCode());
+		statement.setString(2, m.getCarCode());
+		statement.setString(3, m.getName());
+		statement.setString(4, m.getDescribtion());
 
-		stmt.executeUpdate();
+		statement.executeUpdate();
 		
 	} // end addModel
 	
@@ -76,17 +76,17 @@ public class DAO {
 	public void addVehicle(Vehicle v) throws SQLException {
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement stmt = conn.prepareStatement("INSERT INTO vehicle values(?, ?, ?, ?, ?, ?, ?)");
+		PreparedStatement satement = conn.prepareStatement("INSERT INTO vehicle values(?, ?, ?, ?, ?, ?, ?)");
 
-		stmt.setString(1, v.getReg());
-		stmt.setString(2, v.getManu_code());
-		stmt.setString(3, v.getModel_code());
-		stmt.setInt(4, v.getMileage());
-		stmt.setFloat(5, v.getPrice());
-		stmt.setString(6, v.getColour());
-		stmt.setString(7, v.getFuel());
+		satement.setString(1, v.getReg());
+		satement.setString(2, v.getManu_code());
+		satement.setString(3, v.getModel_code());
+		satement.setInt(4, v.getMileage());
+		satement.setFloat(5, v.getPrice());
+		satement.setString(6, v.getColour());
+		satement.setString(7, v.getFuel());
 
-		stmt.executeUpdate(); 
+		satement.executeUpdate(); 
 		
 	} // end addVehicle
 
@@ -97,9 +97,9 @@ public class DAO {
 		ArrayList<Manufacturer> manufacturer = new ArrayList<>();
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement myStmt = conn.prepareStatement("select * from manufacturer");
+		PreparedStatement statement = conn.prepareStatement("select * from manufacturer");
 
-		ResultSet result = myStmt.executeQuery();
+		ResultSet result = statement.executeQuery();
 
 		while (result.next()) {
 
@@ -119,9 +119,9 @@ public class DAO {
 		ArrayList<Model> model = new ArrayList<>();
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement myStmt = conn.prepareStatement("select * from model");
+		PreparedStatement statement = conn.prepareStatement("select * from model");
 
-		ResultSet result = myStmt.executeQuery();
+		ResultSet result = statement.executeQuery();
 
 		while (result.next()) {
 
@@ -142,9 +142,9 @@ public class DAO {
 		ArrayList<Vehicle> vehicle = new ArrayList<>();
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement myStmt = conn.prepareStatement("select * from vehicle");
+		PreparedStatement statement = conn.prepareStatement("select * from vehicle");
 
-		ResultSet result = myStmt.executeQuery();
+		ResultSet result = statement.executeQuery();
 
 		while (result.next()) {
 
@@ -168,21 +168,21 @@ public class DAO {
 		ArrayList<Vehicle> vehicle = new ArrayList<>();
 
 		Connection conn = mysqlDS.getConnection();
-		PreparedStatement myStmt = conn.prepareStatement("select * from vehicle where reg = ?");
+		PreparedStatement statement = conn.prepareStatement("select * from vehicle where reg = ?");
 
-		ResultSet result = myStmt.executeQuery();
+		ResultSet result = statement.executeQuery();
 
-			myStmt.setString(1, v.getReg());
-			String reg = result.getString("reg");
-			String manu_code = result.getString("manu_code");
-			String model_code = result.getString("model_code");
-			int mileage = result.getInt("mileage");
-			float price = result.getFloat("price");
-			String colour = result.getString("colour");
-			String fuel = result.getString("fuel");
-
-			vehicle.add(new Vehicle(reg, manu_code, model_code, mileage, price, colour, fuel));
-
+		statement.setString(1, v.getReg());
+		String reg = result.getString("reg");
+		String manu_code = result.getString("manu_code");
+		String model_code = result.getString("model_code");
+		int mileage = result.getInt("mileage");
+		float price = result.getFloat("price");
+		String colour = result.getString("colour");
+		String fuel = result.getString("fuel");
+		
+		vehicle.add(new Vehicle(reg, manu_code, model_code, mileage, price, colour, fuel));
+		
 		return vehicle;
 		
 	} // end getVehicle

@@ -13,7 +13,7 @@ public class Vehicle {
 	private String colour;
 	private String fuel;
 	
-
+	// Constructors
 	public Vehicle() {
 	}
 
@@ -28,6 +28,7 @@ public class Vehicle {
 		this.fuel = fuel;
 	}
 
+	// Getters and Setters
 	public String getReg() {
 		return reg;
 	}

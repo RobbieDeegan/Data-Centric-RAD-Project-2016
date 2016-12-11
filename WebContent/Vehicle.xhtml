@@ -6,18 +6,16 @@
 
 <h:head>
 	<title>Vehicle</title>
-
 	<f:metadata>
 		<f:event listener="#{vehicleController.load()}"
 			type="preRenderView" />
 	</f:metadata>
 </h:head>
-
 <h:body>
 	<h:form>
 		<h:commandButton value="Add Vehicle" action="addVehicle" />
 		<br />
-		
+		<br />
 		<h:dataTable value="#{vehicleController.vehicle}" var="v" border="2">
 		<h:column>
 			<f:facet name="header">Reg</f:facet>
@@ -52,7 +50,7 @@
 			 <a href="allDetails.xhtml">All Details</a><br />
 		</h:column>
 		</h:dataTable>
-	
+		<br />
 		<h:link value="Home" outcome="main" />
 	</h:form>
 </h:body>

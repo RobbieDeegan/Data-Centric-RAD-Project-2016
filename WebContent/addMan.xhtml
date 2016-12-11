@@ -12,17 +12,20 @@
 		<h:message for="code" styleClass="errorMessage" />
 		<br />
       	Manufacturer code: <h:inputText value="#{manufacturer.code}" id="code"
-			p:placeholder="Manufacturer Code" required="true" requiredMessage="Code mandatory" />
+			p:placeholder="Manufacturer Code" required="true" 
+			requiredMessage="Code mandatory" />
 		<br />
 		<h:message styleClass="errorMessage" for="name"/> 
 		<br />
       	Manufacturer name: <h:inputText value="#{manufacturer.name}" id="name"
-			p:placeholder="Manufacturer name" required="true" requiredMessage="Name mandatory" />
+			p:placeholder="Manufacturer name" required="true" 
+			requiredMessage="Name mandatory" />
 		<br />
 		<h:message styleClass="errorMessage" for="details"/> 
 		<br />
 		Manufacturer details: <h:inputText value="#{manufacturer.details}" id="details"
-			p:placeholder="Manufacturer details" required="true" requiredMessage="Details mandatory" />
+			p:placeholder="Manufacturer details" required="true" 
+			requiredMessage="Details mandatory" />
 		<br />
 		<h:commandButton value="Add"
 			action="#{manufacturerController.add(manufacturer)}" />

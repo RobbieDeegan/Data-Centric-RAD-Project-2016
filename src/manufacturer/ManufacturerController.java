@@ -52,16 +52,12 @@ public class ManufacturerController {
 	public void delete(Manufacturer m) {
 		try {		
 			dao.delete(m);
-			FacesContext.getCurrentInstance().getExternalContext().redirect("Manufacturer.xhtml");
-				
-		} catch (SQLException e) {
-				
-			FacesMessage message = new FacesMessage("Error " + e);
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			
+			FacesContext.getCurrentInstance().getExternalContext().redirect("Manufacturer.xhtml");	
+		} catch (SQLException e) {	
+			FacesMessage msg = new FacesMessage("Error" + e);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
 		}
 		catch (Exception e) {
-				
 			e.printStackTrace();
 		}
 	}

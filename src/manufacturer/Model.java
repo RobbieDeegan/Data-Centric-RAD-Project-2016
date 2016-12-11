@@ -11,6 +11,7 @@ public class Model{
 	private String name;
 	public String describtion;
 
+	// Constructors
 	public Model() {
 	}
 
@@ -22,6 +23,7 @@ public class Model{
 		this.describtion = describtion;
 	}
 
+	// Getters and Setters
 	public String getManCode() {
 		return manCode;
 	}
@@ -53,5 +55,4 @@ public class Model{
 	public void setDescribtion(String describtion) {
 		this.describtion = describtion;
 	}
-
 }
